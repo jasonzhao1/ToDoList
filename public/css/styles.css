@@ -1,6 +1,9 @@
 html {
-  background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  /* background-color: #E4E9FD; */
+  background-color: white;
+  /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%); */
+
+background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
   min-height: 1000px;
   font-family: 'helvetica neue';
 }
@@ -18,9 +21,44 @@ h1 {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+
+
 #heading {
-  background-color: #A683E3;
+  background-color: #f37121;
   text-align: center;
+}
+
+#add_heading {
+  background-color: #f37121;
+  text-align: center;
+  padding-bottom:30px;
+}
+
+.floating {
+  position: absolute;
+  top:50px;
+  height: 50px;
+  width:10%;
+  min-width:100px;
+  margin:0;
+  font-size:20px;
+  background-color: #f7d1ba;
+  text-align: center;
+  border-style:none;
+  color:black;
+}
+
+.floating:hover {
+  background-color: #fbe2e5;
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.8);
+}
+
+#allList {
+  left: 10%;
+}
+
+#CreateList {
+  right: 10%;
 }
 
 .item {
@@ -34,9 +72,11 @@ h1 {
   border-bottom: 0;
 }
 
+
+
 input:checked+p {
   text-decoration: line-through;
-  text-decoration-color: #A683E3;
+  text-decoration-color: #393e46;
 }
 
 input[type="checkbox"] {
@@ -56,16 +96,29 @@ form.item {
   margin-left: 20px;
 }
 
-button {
+form button {
   min-height: 50px;
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #A683E3;
+  background-color: #393e46;
   color: #fff;
   font-size: 30px;
   padding-bottom: 6px;
   border-width: 0;
+}
+
+form button:hover {
+  background-color:#f37121;
+}
+
+#add_heading button {
+  background-color: white;
+  color:#393e46;
+}
+
+#add_heading button:hover {
+  background-color: #ffa36c;
 }
 
 input[type="text"] {
@@ -81,7 +134,66 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #A683E3;
+  box-shadow: inset 0 -3px 0 0 #393e46;
+}
+
+#add_heading input::placeholder {
+  color:black;
+  opacity:1;
+}
+
+#add_heading input:focus {
+  box-shadow: inset 0 -2px 0 0 white;
+}
+
+/* manage list styles */
+.manage_div {
+  margin-bottom: 100px;
+  padding:0;
+  display: inline-block;
+  width:49%;
+  text-align:center;
+
+}
+
+.manage_button {
+  width: 20%;
+  height: 50px;
+  font-size: 20px;
+  background-color: #f37121;
+  color:white;
+  border:2px solid black;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.manage_button:hover {
+  box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.8);
+  border-width:3px;
+}
+
+#delete_button {
+  position:relative;
+  top:5px;
+  left:20px;
+  border:1.5px solid #393e46;
+}
+
+#home_button {
+  color:white;
+  height:30px;
+  font-size: 20px;
+  position:relative;
+  bottom: 20px;
+  background-color: #f38121;
+  border:0.5px solid ;
+  border-radius:5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#home_button:hover {
+  background-color: #ffaa71;
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.8);
 }
 
 ::placeholder {

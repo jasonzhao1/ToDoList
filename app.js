@@ -22,15 +22,15 @@ const itemSchema = new mongoose.Schema ({
 const Item = mongoose.model("Item", itemSchema);
 
 const game = new Item ({
-  name: "game"
+  name: "Welcome to the to-do-list"
 });
 
 const study = new Item ({
-  name: "study"
+  name: "Click the + sign to add a new item"
 });
 
 const sleep = new Item ({
-  name: "sleep"
+  name: "Check an item to delete it!"
 });
 
 const defaultItems = [game, study, sleep];
@@ -43,6 +43,43 @@ const listSchema = new mongoose.Schema ({
 const List = mongoose.model("List", listSchema);
 
 const day = date.getDate();
+
+app.get("/about", function(req, res){
+  res.render("about");
+});
+
+app.get("/add", function(req,res) {
+  res.render("add");
+})
+
+app.post("/add", function(req,res) {
+  const itemName = req.body.newItemName;
+  res.redirect("/" + itemName);
+})
+
+app.get("/manage", function(req,res) {
+  List.find({name: {$nin: ["About","Home","Manage", "Apple-touch-icon.png", "Apple-touch-icon-precomposed.png","Favicon.ico"]}}, function(err,lists){
+    if(err) {
+      console.log(err);
+    } else{
+      res.render("manage",{fullList:lists});
+  }
+
+  });
+
+
+})
+
+app.post("/manage", function(req,res) {
+  const listName = req.body.indivList;
+  List.findOneAndDelete({name: listName}, function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/manage");
+    }
+  })
+})
 
 app.get("/", function(req, res) {
 
@@ -143,18 +180,13 @@ app.get("/:customListName", function(req,res){
       }
     }
   })
-
-
-
 });
 
-app.get("/about", function(req, res){
-  res.render("about");
-});
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+  port = 3000;
 }
 
 app.listen(port, function() {

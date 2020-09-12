@@ -3,12 +3,17 @@
   <div class="box" id="heading">
     <h1> <%= listTitle %> </h1>
   </div>
+    <a href="/manage"><button id="allList" class="floating box">Show all lists</button></a>
+    <a href="/add"><button id="CreateList" class="floating box">Create a New List</button></a>
+
+
 
   <div class="box">
+
     <% newListItems.forEach(function(item) { %>
       <form class="" action="/delete" method="post">
         <div class="item">
-          <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+          <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()" />
           <p><%=  item.name  %></p>
         </div>
         <input type="hidden" name="listName" value="<%= listTitle %>"> </input>

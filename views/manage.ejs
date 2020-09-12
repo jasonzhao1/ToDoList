@@ -1,0 +1,23 @@
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1> Manage Lists </h1>
+  <a href="/home"><button type="button" id="home_button">->Back to Home Page</button></a>
+</div>
+
+<% fullList.forEach(function(item) { %>
+  <div class="manage_div">
+    <form action="/manage" method="post">
+      <!-- <a href="/<%= item.name %>"> -->
+      <button  onClick="location.href = '/<%= item.name %>';" type="button" class="manage_button" ><%= item.name %> </button>
+      <!-- </a> -->
+      <button name="indivList" id="delete_button" type="submit" value="<%= item.name %>"> - </button>
+    </form>
+
+  </div>
+
+
+<% }); %>
+
+
+<%- include("footer") -%>
